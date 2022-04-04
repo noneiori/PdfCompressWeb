@@ -1,0 +1,75 @@
+﻿<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF 壓縮服務</title>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- Custom Theme files -->
+    <script src="js/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.blockUI.js"></script>
+    <!-- Custom Theme files -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="File Uploader Widget Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    @{
+        ViewBag.Title = "PDF 壓縮服務";
+    }
+    <style>
+        .btn_submit {
+        }
+
+        .login-form-div {
+            background: white;
+            width: 276px
+        }
+
+        div .upload {
+            background-color: #558299;
+        }
+        .error_message {
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <a href="/Home" style="text-decoration:none">
+        <h1>PDF 壓縮服務</h1>
+    </a>
+    <div class="upload">
+        <center>
+            <div class="login-form login-form-div">
+                @using (Html.BeginForm("UploadFile", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.TextBox("upload", "", new { type = "file" })
+                    <hr />
+                    <div class="d-inline-flex p-2">
+                        @Html.ActionLink("確定", "#", "", new { @class = "btn btn-primary btn_submit", onclick = "this.closest('form').submit();return false;" })
+                    </div>
+
+                    <div>
+                        <label>壓縮格式：</label>
+                        @Html.DropDownList("imageType", (List<SelectListItem>)ViewData["selectListItems"])
+                    </div>
+
+                    <div style="display:none">
+                        <label for="resize">是否調整成A4大小：</label>
+                        @Html.CheckBox("resize", true)
+                    </div>
+                }
+                <b class="error_message">@ViewBag.Error</b>
+            </div>
+        </center>
+    </div>
+
+</body>
+</html>
+

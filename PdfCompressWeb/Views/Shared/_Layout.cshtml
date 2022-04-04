@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 計資組</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>    
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>Copyright &copy; 2015 File Uploader Widget. All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+            <p>&copy; @DateTime.Now.Year - 計資組</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
