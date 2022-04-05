@@ -23,6 +23,14 @@ namespace PdfCompressWeb.Models
         {
             InitialUploadFolder();
             InitialPageSize();
+            InitialCompressRatio();
+        }
+        /// <summary>
+        /// 初始化壓縮比例
+        /// </summary>
+        private void InitialCompressRatio()
+        {
+            this.CompressRatio = 0;
         }
 
         private void InitialUploadFolder()
@@ -40,6 +48,7 @@ namespace PdfCompressWeb.Models
             InitialPageSize(width, height);
 
             InitialUploadFolder();
+            InitialCompressRatio();
         }
 
         private void InitialPageSize(int width = defaultWidth, int height = defaultHeight)
@@ -56,6 +65,7 @@ namespace PdfCompressWeb.Models
                 this.UploadFolder = "";
 
                 InitialPageSize();
+                InitialCompressRatio();
             }
         }
 
@@ -71,6 +81,10 @@ namespace PdfCompressWeb.Models
         /// 圖片類型
         /// </summary>
         public string ImageType { get; set; }
+        /// <summary>
+        /// 壓縮比例
+        /// </summary>
+        public int CompressRatio { get; set; }
 
         /// <summary>
         /// 壓縮傳入的pdf檔，並回傳壓縮後的檔案名稱

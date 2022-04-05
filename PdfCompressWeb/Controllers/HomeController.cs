@@ -33,7 +33,7 @@ namespace PdfCompressWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult UploadFile(HttpPostedFileBase file,string imageType,bool resize)
+        public ActionResult UploadFile(HttpPostedFileBase file,string imageType,bool resize,int compressRatio)
         {
             var fs = Request.Files;
 
@@ -63,6 +63,7 @@ namespace PdfCompressWeb.Controllers
 
             compress.ImageType = imageType;
             compress.ResizePicture = resize;
+            compress.CompressRatio = compressRatio;
             string outputFile = compress.CompressFile(guidname);
 
             return File(compress.UploadFolder + outputFile, "application/pdf");

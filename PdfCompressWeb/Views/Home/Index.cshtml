@@ -54,15 +54,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="d-inline-flex p-2">
                         @Html.ActionLink("確定", "#", "", new { @class = "btn btn-primary btn_submit", onclick = "this.closest('form').submit();return false;" })
                     </div>
-
+                    <hr />
                     <div>
                         <label>壓縮格式：</label>
                         @Html.DropDownList("imageType", (List<SelectListItem>)ViewData["selectListItems"])
                     </div>
-
+                    
                     <div style="display:none">
                         <label for="resize">是否調整成A4大小：</label>
                         @Html.CheckBox("resize", true)
+                    </div>
+                    <hr />
+                    <div>
+                        <label>壓縮比例：</label>
+                        @Html.TextBox("compressRatio", "0", new { type = "range", min = "0", max = "100" })
                     </div>
                 }
                 <b class="error_message">@ViewBag.Error</b>
